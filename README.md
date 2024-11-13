@@ -1,0 +1,1 @@
+# react-wp-gutenberg-text-overlay-image-block
