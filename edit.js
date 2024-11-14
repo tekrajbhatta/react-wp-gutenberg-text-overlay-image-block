@@ -34,6 +34,27 @@ function Edit({ attributes, setAttributes }) {
         });
     };
 
+    // Function to handle position changes
+    const handlePositionChange = (position, value) => {
+        const parsedValue = parseInt(value);
+        if (!isNaN(parsedValue) || value === '') {
+            setAttributes({ [position]: value === '' ? undefined : parsedValue });
+        }
+    };
+
+    // Function to generate style object
+    const getTextBoxStyles = () => {
+        const styles = {};
+        
+        // Only add position if it has a value
+        if (topPosition !== undefined) styles.top = `${topPosition}px`;
+        if (rightPosition !== undefined) styles.right = `${rightPosition}px`;
+        if (bottomPosition !== undefined) styles.bottom = `${bottomPosition}px`;
+        if (leftPosition !== undefined) styles.left = `${leftPosition}px`;
+        
+        return styles;
+    };
+
     return (
         <>
             <InspectorControls>
@@ -42,7 +63,7 @@ function Edit({ attributes, setAttributes }) {
                         <NumberControl
                             label={__('Top Position (px)')}
                             value={topPosition}
-                            onChange={(value) => setAttributes({ topPosition: parseInt(value) || 0 })}
+                            onChange={(value) => handlePositionChange('topPosition', value)}
                             min={-1000}
                             max={1000}
                         />
@@ -51,7 +72,7 @@ function Edit({ attributes, setAttributes }) {
                         <NumberControl
                             label={__('Right Position (px)')}
                             value={rightPosition}
-                            onChange={(value) => setAttributes({ rightPosition: parseInt(value) || 0 })}
+                            onChange={(value) => handlePositionChange('rightPosition', value)}
                             min={-1000}
                             max={1000}
                         />
@@ -60,7 +81,7 @@ function Edit({ attributes, setAttributes }) {
                         <NumberControl
                             label={__('Bottom Position (px)')}
                             value={bottomPosition}
-                            onChange={(value) => setAttributes({ bottomPosition: parseInt(value) || 0 })}
+                            onChange={(value) => handlePositionChange('bottomPosition', value)}
                             min={-1000}
                             max={1000}
                         />
@@ -69,7 +90,7 @@ function Edit({ attributes, setAttributes }) {
                         <NumberControl
                             label={__('Left Position (px)')}
                             value={leftPosition}
-                            onChange={(value) => setAttributes({ leftPosition: parseInt(value) || 0 })}
+                            onChange={(value) => handlePositionChange('leftPosition', value)}
                             min={-1000}
                             max={1000}
                         />
@@ -114,12 +135,7 @@ function Edit({ attributes, setAttributes }) {
                     {imageUrl && (
                         <div
                             className="text-box"
-                            style={{
-                                top: topPosition ? `${topPosition}px` : 'auto',
-                                right: rightPosition ? `${rightPosition}px` : 'auto',
-                                bottom: bottomPosition ? `${bottomPosition}px` : 'auto',
-                                left: leftPosition ? `${leftPosition}px` : 'auto',
-                            }}
+                            style={getTextBoxStyles()}
                         >
                             <RichText
                                 tagName="div"
