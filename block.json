@@ -26,8 +26,7 @@
             "default": "Pro-QCP™: A Process Approach to Ensuring Diagnostic Test Accuracy"
         },
         "topPosition": {
-            "type": "number",
-            "default": 0
+            "type": "number"
         },
         "rightPosition": {
             "type": "number"
@@ -36,8 +35,7 @@
             "type": "number"
         },
         "leftPosition": {
-            "type": "number",
-            "default": 0
+            "type": "number"
         }
     },
     "example": {

@@ -62,7 +62,7 @@ function Edit({ attributes, setAttributes }) {
                     <PanelRow>
                         <NumberControl
                             label={__('Top Position (px)')}
-                            value={topPosition}
+                            value={topPosition ?? ''}
                             onChange={(value) => handlePositionChange('topPosition', value)}
                             min={-1000}
                             max={1000}
@@ -71,7 +71,7 @@ function Edit({ attributes, setAttributes }) {
                     <PanelRow>
                         <NumberControl
                             label={__('Right Position (px)')}
-                            value={rightPosition}
+                            value={rightPosition ?? ''}
                             onChange={(value) => handlePositionChange('rightPosition', value)}
                             min={-1000}
                             max={1000}
@@ -80,7 +80,7 @@ function Edit({ attributes, setAttributes }) {
                     <PanelRow>
                         <NumberControl
                             label={__('Bottom Position (px)')}
-                            value={bottomPosition}
+                            value={bottomPosition ?? ''}
                             onChange={(value) => handlePositionChange('bottomPosition', value)}
                             min={-1000}
                             max={1000}
@@ -89,7 +89,7 @@ function Edit({ attributes, setAttributes }) {
                     <PanelRow>
                         <NumberControl
                             label={__('Left Position (px)')}
-                            value={leftPosition}
+                            value={leftPosition ?? ''}
                             onChange={(value) => handlePositionChange('leftPosition', value)}
                             min={-1000}
                             max={1000}
