@@ -30,6 +30,11 @@
     padding: 20px 33px;
     text-align: center;
     width: 363px;
+ 
+    @media(--vp-xsmall-max){
+        width: 100%;
+        right: 0px !important;
+    }
 }
 
 /* Editor Styles */
